@@ -56,6 +56,10 @@ class eventEmitter {
     return this;
   }
 
+  removeListener(eventName, listener) {
+    return this.off.call(this, eventName, listener);
+  }
+
   offAll(eventName) {
     if (!this._events) {
       return this;
@@ -67,6 +71,10 @@ class eventEmitter {
     } else {
       this._events[eventName].length = 0;
     }
+  }
+
+  removeAllListeners(eventName) {
+    return this.offAll.call(this, eventName);
   }
 
   listeners(eventName) {
