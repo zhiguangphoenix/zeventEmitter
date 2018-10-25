@@ -1,6 +1,6 @@
 class eventEmitter {
   on(eventName, listener) {
-    this._events = this._events || {};
+    this._events = this._events || Object.create(null);
     this._events[eventName] = this._events[eventName] || [];
     
     this._events[eventName].push(listener);
